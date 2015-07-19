@@ -204,6 +204,7 @@ import com.applitools.eyes.Eyes;
 		//recover with invalid mail
 		genMeth.clickId(genMeth, droidData.BTNforgotPasswordID);
 		genMeth.clearId(genMeth, droidData.TEXTFIELDrecoveryEmailID);
+
 		genMeth.clickId(genMeth, droidData.BTNrecoverPasswordID);
 		genMeth.isElementVisible(By.name(droidData.InvalidRecoverEmailName));
 		genMeth.pressBackButton();
