@@ -47,7 +47,7 @@ public class IosElements {
 	
 	
 	//Icons
-	
+	String IconBackToApplicationList_xpth;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -81,7 +81,10 @@ public class IosElements {
 
 		
 		this.Checkbox_rememberme_ID = XmlHandel.readAndroidXml("Checkbox_rememberme_ID", langXml, xmlPath);
+		this.IconBackToApplicationList_xpth = XmlHandel.readAndroidXml("IconBackToApplicationList_xpth", langXml, xmlPath);
 
+		
+		
 		
 		this.password = XmlHandel.readAndroidXml("password", langXml, xmlPath);
 		this.scrollDown = XmlHandel.readAndroidXml("scrollDown", langXml, xmlPath);

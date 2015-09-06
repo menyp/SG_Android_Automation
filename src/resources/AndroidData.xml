@@ -10,6 +10,27 @@
 			<BTNcancelForgotPasswordID>com.skygiraffe.operationaldata:id/recovery_password_fragment_cancel_btn</BTNcancelForgotPasswordID>	
 			<BTNrecoverPasswordID>com.skygiraffe.operationaldata:id/recovery_pass_step_one_submit_btn</BTNrecoverPasswordID>	
 			<BTNresetPasswordID>com.skygiraffe.operationaldata:id/recovery_pass_reset_password_btn</BTNresetPasswordID>	
+			
+			
+			
+			<BTNdoneName>Done</BTNdoneName>
+			<BTNsettingsIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]</BTNsettingsIconXpth>
+			<BTNBackName>Back</BTNBackName>
+			<BTNClearName>Clear</BTNClearName>
+			<BTNSlicerIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]</BTNSlicerIconXpth>
+			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
+			<BTNCancelName>Cancel</BTNCancelName>					
+			<BTNMapCarIconName>mapcar icon</BTNMapCarIconName>
+			<BTNokName>OK</BTNokName>
+			<BTNpriority_Name>Priority</BTNpriority_Name>
+			<BTNnewServiceCallId>New Service Call</BTNnewServiceCallId>
+			<BTNsubmit_ID>Submit</BTNsubmit_ID>
+			<BTNplaceNewOrder_Xpth>//UIACollectionCell[@name='Place New Order']</BTNplaceNewOrder_Xpth>
+			<BTNaddContact_Name>Add contact</BTNaddContact_Name>
+			<BTNdeleteDraft_Name>Delete Draft</BTNdeleteDraft_Name>
+			<BTNclearText_Name>Clear text</BTNclearText_Name>
+			<BTNdelete_Name>Delete</BTNdelete_Name>
+			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
 		
 		</Buttons>
 		
@@ -17,7 +38,6 @@
 			<TEXTFIELDemailID>com.skygiraffe.operationaldata:id/login_screen_email_field</TEXTFIELDemailID>
 			<TEXTFIELDpasswordID>com.skygiraffe.operationaldata:id/login_screen_password_field</TEXTFIELDpasswordID>
 			<TEXTFIELDrecoveryEmailID>com.skygiraffe.operationaldata:id/recovery_pass_step_one_edtext</TEXTFIELDrecoveryEmailID>
-
 		</TextFields>
 		
 		<CheckBox>
@@ -40,15 +60,48 @@
 		                
 	    <scrollDown>down</scrollDown>
 	   	<scrollUp>up</scrollUp>
-		<password>1</password>
 		<badPassword>incorrectPassword</badPassword>
 		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
 		<ConnectionWIFI>WIFI</ConnectionWIFI>
 		<CoonectionDATA>DATA</CoonectionDATA>
 		<ConnectionALL>ALL</ConnectionALL>
-		<User>auto1@1.com</User>
+		<User>test1@1.com/qa</User>
+		<password>1234</password>
 		<InvalidRecoverEmailName>The email  is not a valid Skygiraffe user. Please try again.</InvalidRecoverEmailName>
 		<ConfCodeIncorrectName>Confirmation Code not correct</ConfCodeIncorrectName>
+		
+		
+		
+		
+		
+		
+		<scrollDown>down</scrollDown>
+	   	<scrollUp>up</scrollUp>
+		<UserProd>test1@1.com</UserProd>
+		<passwordProd>M1234567!</passwordProd>
+		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
+		<ConnectionWIFI>WIFI</ConnectionWIFI>
+		<CoonectionDATA>DATA</CoonectionDATA>
+		<ConnectionALL>ALL</ConnectionALL>
+		<InvalidRecoverEmailName></InvalidRecoverEmailName>
+		<ConfCodeIncorrectName></ConfCodeIncorrectName>
+		<DashboardName>Dashboard </DashboardName>
+		<SalesName>Sales</SalesName>
+		<ReturnsName>Returns</ReturnsName>
+		<NetSalesName>Net Sales</NetSalesName>
+		<DailySalesBarID>Daily Sales - Bar</DailySalesBarID>
+		<DailysalesPieID>Daily sales - Pie</DailysalesPieID>
+		<DestinyUSAID>Destiny USA</DestinyUSAID>
+		<Last12hoursID>Last 12 hours</Last12hoursID>
+		<BranchID>Branch</BranchID>
+		<DailySalesID>Daily Sales</DailySalesID>
+		<ServiceCallsID>Service Calls</ServiceCallsID>
+		<ServiceCallsMapID>Service Calls Map</ServiceCallsMapID>
+		<MallofAmericaOnMapXpath>//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAMapView[1]/UIAElement[2]</MallofAmericaOnMapXpath>
+		<CameraPemissions_ID>“SkyGiraffe” Would Like to Access the Camera</CameraPemissions_ID>
+		<ContactsPermissionsName>“SkyGiraffe” Would Like to Access Your Contacts</ContactsPermissionsName>
+		<MallOfAmerica_Id>Mall of America</MallOfAmerica_Id>
+		<OrderLookup_ID>Order Lookup</OrderLookup_ID>
 	
 
 	<errorText>
@@ -56,7 +109,9 @@
 	</errorText>
 	
 	<Icon>
-	  
+	  	<IconBackToApplicationList_xpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]</IconBackToApplicationList_xpth>
+		<Iconaction_icon_green_Name>action_icon_green</Iconaction_icon_green_Name>
+		<IconHome_ID>android:id/home</IconHome_ID>
 	</Icon>
 	
 	

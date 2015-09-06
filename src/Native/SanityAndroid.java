@@ -4,6 +4,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 import java.io.IOException;
@@ -94,45 +95,23 @@ import com.applitools.eyes.Eyes;
 		genMeth.setWifiOn();
 	}
 
-	@Test (enabled = true ,testName = "createfolder1", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
 			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
 	public void loginSample() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
-
-		driver.resetApp();
+		//signout 
+		Thread.sleep(1000);
+		driver.scrollToExact("Logout");
+		genMeth.clickName(genMeth, "Logout");
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
 		// Verify that the sample login success
-		genMeth.eyesCheckWindow(eyes, "login sample validation");
-
-	}
-
-	
-	@Test (enabled = true , retryAnalyzer = Retry.class, testName="Sanity Tests", description = "Test the Upload utility with Android" ,
-			groups= {"Sanity Android"})	
-	public void uploadImage() throws ParserConfigurationException, SAXException, IOException, InterruptedException{
-			}
-	
-	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts",
-			groups = { "Sanity Android" })
-	public void tour() throws Exception, Throwable {
-
-			}
-	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Sign up- Create new user (Negetive positive test), Privacy Policy, TRUSTe",
-			groups = { "Sanity Android" })
-	public void createNewUser() throws Exception, Throwable {
-			
-	}
-	
-	@Test (enabled = true, retryAnalyzer = Retry.class, testName = "Terms of service & TrusTe", description = "Test the TOS & TrusTe Links" ,
-			groups = {"Sanity Android"})
-	public void termsOfServiceAndTruste () throws InterruptedException, IOException, ParserConfigurationException, SAXException{
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen");
 		
-				
 	}
+
+
 	
-	@Test(enabled = true, groups = { "Sanity Android" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
+	@Test(enabled = false, groups = { "Sanity Android" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {
 
 		genMeth.signOutFromStartup(genMeth, droidData);
@@ -189,7 +168,7 @@ import com.applitools.eyes.Eyes;
 	
 	}
 	
-	@Test(enabled = true, groups = { "Sanity Android1" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot" )
+	@Test(enabled = false, groups = { "Sanity Android1" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot" )
 	public void forgotYourPassword() throws Exception, Throwable {
 		
 		genMeth.signOutFromStartup(genMeth, droidData);
@@ -230,39 +209,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Search functionality & filter",
-			groups = { "Sanity Android" })
-	public void search() throws Exception, Throwable {
-		
-			}
 	
-	
-	@Test (enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: Save Login",
-			groups = { "Sanity Android" })
-			
-	public void settingsKeepMeSignedIn() throws Exception, Throwable {
-
-			}
-
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: Backup Enable/disable without upload in the background",
-			groups = { "Regression Droid" })
-	public void settingsBackupEnableDisable() throws Exception, Throwable {
-
-		// Disable the Backup from tour
-		
-
-		// "Enable" the backup form LSM (Left Side Menu) & cancel it
-		
-
-		// Enable the Backup form LSM (Left Side Menu)
-	
-
-		// Enable the backup from settings (first enable it & then disable it from backup screen)
-		
-
-	}
-	
-
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Switching from Foreground to Background and vice versa use cases",
 			groups = { "Sanity Android" })
 	public void foregroundBackgroundSwitch() throws Exception, Throwable {

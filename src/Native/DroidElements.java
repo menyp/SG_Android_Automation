@@ -47,7 +47,7 @@ public class DroidElements {
 	
 	
 	//Icons
-	
+	String IconHome_ID;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -95,6 +95,9 @@ public class DroidElements {
 		this.ConfCodeIncorrectName = XmlHandel.readAndroidXml("ConfCodeIncorrectName", langXml, xmlPath);
 
 
+		this.IconHome_ID = XmlHandel.readAndroidXml("IconHome_ID", langXml, xmlPath);
+
+		
 
 
 	

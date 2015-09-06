@@ -4,7 +4,7 @@
   <test name="Sanity Tests(failed)" parallel="none">
     <groups>
       <run>
-        <include name="Sanity Android1"/>
+        <include name="Sanity Android"/>
       </run>
     </groups>
     <classes>
@@ -12,7 +12,7 @@
         <methods>
           <include name="setupBeforeSuite"/>
           <include name="checkHomeScreen"/>
-          <include name="forgotYourPassword"/>
+          <include name="loginSample"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Native.SanityAndroid -->

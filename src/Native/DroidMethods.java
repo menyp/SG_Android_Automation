@@ -1,5 +1,6 @@
 package Native;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.NetworkConnectionSetting;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -48,9 +49,19 @@ public class DroidMethods {
 
 	public void cleanLoginAndroid(DroidMethods genMeth,  DroidElements droidData , String user) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
 			
+		
+		//Check language making sure keyboard is set to English
+		
+		// Make sure that the English keyboard is open
+			
+		// Make sure that the email & password fields are empty
+		
+		
 		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, droidData.User);
 		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, droidData.password);
 		genMeth.clickId( genMeth, droidData.BTNloginID);
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
+		
 
 	}
 	
