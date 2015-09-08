@@ -26,9 +26,12 @@ import com.applitools.eyes.Eyes;
 	String StartServerPath;
 	String StopServerPath;
 	DroidElements droidData;
+	String appPackage;
 	public AndroidDriver driver;
 	DroidMethods genMeth = new DroidMethods();
 	Eyes eyes = new Eyes();
+	Boolean useEye = true;
+
 	
 	public SanityAndroid() {
 		// TODO Auto-generated constructor stub
@@ -44,6 +47,7 @@ import com.applitools.eyes.Eyes;
 		StopServerPath = genMeth.getValueFromPropFile("StopServerPath");
 		webElementXmlPath = genMeth.getValueFromPropFile("webElementXmlPath");
 		webElementXmlLang = genMeth.getValueFromPropFile("webElementXmlLang");
+		appPackage = genMeth.getValueFromPropFile("com.skygiraffe.operationaldata"); 
 		
 		droidData= new DroidElements(webElementXmlLang, webElementXmlPath);
 		driver = genMeth.setCapabilitiesAndroid(genMeth);
@@ -99,13 +103,105 @@ import com.applitools.eyes.Eyes;
 			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
 	public void loginSample() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
-		//signout 
-		Thread.sleep(1000);
+
 		driver.scrollToExact("Logout");
 		genMeth.clickName(genMeth, "Logout");
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
 		// Verify that the sample login success
-		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen");
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
+		
+		// Login to sample app & open Dashboard report
+		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/main_report_list_item_icon_tv");
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Dashboard Tab", useEye);
+		driver.scrollToExact("SALES");
+		genMeth.clickName(genMeth,  droidData.Dashboard_Name);
+		//genMeth.clickId(genMeth, "android:id/action_bar_spinner");
+		genMeth.clickName(genMeth, "World wide orders");
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample World wide orders Tab", useEye);
+		genMeth.backButton();
+
+		// Open Sales Bar
+		genMeth.clickName(genMeth, "Daily Sales");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Bar- Show All", useEye);
+		genMeth.setOrientationLandscape();
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Bar- Show All- Landscape", useEye);
+		genMeth.setOrientationPortrait();
+		
+		genMeth.clickName(genMeth, "Returns");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Bar- show Sales/Net Sales", useEye);
+		
+		genMeth.clickName(genMeth, "Sales");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- show Net Sales", useEye);
+	
+		genMeth.clickName(genMeth, "Returns");
+		genMeth.clickName(genMeth, "Sales");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Bar- Show All", useEye);
+		
+		//Open Sales Pie
+		genMeth.clickName(genMeth, "Daily Sales");
+		genMeth.clickName(genMeth, "Daily sales - Pie");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Pie- Sales", useEye);
+		genMeth.clickName(genMeth, "Destiny USA");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Pie- Sales - Destiny USA", useEye);
+		genMeth.clickName(genMeth, "Returns");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Pie- Returns - Destiny USA", useEye);
+		
+		genMeth.clickName(genMeth, "Net Sales");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Pie- Net Sales - Destiny USA", useEye);
+		
+		
+		//Open Sales Sparklines
+		genMeth.clickName(genMeth, "Daily Sales");
+		genMeth.clickName(genMeth, "Last 12 hours");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
+		Thread.sleep(1000);
+
+		// Check slicer in Sparklines
+		/*
+		genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.clickId(genMeth, iosData.DestinyUSAID);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
+		*/
+
+
+
+
+		
+		
+		
+
+		/*
+				
+		// Check slicer in Sparklines
+				genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
+				genMeth.clickId(genMeth, iosData.BranchID);
+				genMeth.clickId(genMeth, iosData.DestinyUSAID);
+				genMeth.clickName(genMeth, iosData.BTNBackName);
+				genMeth.clickName(genMeth, iosData.BTNdoneName);
+				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
+				
+		//Clear the Slicer
+				genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
+				genMeth.clickName(genMeth, iosData.BTNClearName);
+				genMeth.clickName(genMeth, iosData.BTNdoneName);
+				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
+				genMeth.clickName(genMeth, iosData.BTNBackName);
+				
+		//Open Daily Sales from main screen
+				genMeth.clickId(genMeth, iosData.DailySalesID);
+				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
+				genMeth.clickName(genMeth, iosData.BTNBackName);
+						
+		//OPEN SERVICE CALLS
+				genMeth.clickId(genMeth, iosData.ServiceCallsID);
+				genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls", useEye);
+				*/
+		
+		
+		
 		
 	}
 
@@ -176,8 +272,8 @@ import com.applitools.eyes.Eyes;
 		//Cancel forgot password
 		genMeth.clickId(genMeth, droidData.BTNforgotPasswordID);
 		genMeth.isElementVisible(By.id(droidData.BTNcancelForgotPasswordID));
-		genMeth.pressBackButton();
-		genMeth.eyesCheckWindow(eyes, "Recover Password");
+		genMeth.backButton();
+		genMeth.eyesCheckWindow(eyes, "Recover Password", useEye);
 		genMeth.clickId(genMeth, droidData.BTNcancelForgotPasswordID);
 		
 		//recover with invalid mail
@@ -186,20 +282,20 @@ import com.applitools.eyes.Eyes;
 
 		genMeth.clickId(genMeth, droidData.BTNrecoverPasswordID);
 		genMeth.isElementVisible(By.name(droidData.InvalidRecoverEmailName));
-		genMeth.pressBackButton();
-		genMeth.eyesCheckWindow(eyes, "Recover Password Invalid Mail");
+		genMeth.backButton();
+		genMeth.eyesCheckWindow(eyes, "Recover Password Invalid Mail", useEye);
 		
 		
 		//recover with a valid mail
 		genMeth.sendId(genMeth, droidData.TEXTFIELDrecoveryEmailID, droidData.User);
 		genMeth.clickId(genMeth, droidData.BTNrecoverPasswordID);
 		genMeth.isElementVisible(By.id(droidData.BTNresetPasswordID));
-		genMeth.eyesCheckWindow(eyes, "Recover Password valid mail");
+		genMeth.eyesCheckWindow(eyes, "Recover Password valid mail", useEye);
 			
 		//Attempt to reset password with incorrect confirmation code 
 		genMeth.clickId(genMeth, droidData.BTNresetPasswordID);
 		genMeth.isElementVisible(By.name(droidData.ConfCodeIncorrectName));
-		genMeth.eyesCheckWindow(eyes, "Recover Password Incorrect code");
+		genMeth.eyesCheckWindow(eyes, "Recover Password Incorrect code", useEye);
 		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
 		//in order to be able to fully test the confirmation process i will need a generic code that will pass (need to ask DEV)
 		
@@ -233,19 +329,23 @@ import com.applitools.eyes.Eyes;
 		// driver.removeApp("com.pogoplug.android");
 
 		try {
-			genMeth.setWifiOn();
+
+			boolean isAppInstalled = driver.isAppInstalled(appPackage);
+			if (isAppInstalled) {
+				driver.removeApp(appPackage);
+			}
 			driver.quit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		SendResults sr = new SendResults("elicherni444@gmail.com",
-				"meny@cloudengines.com", "TestNG results", "Test Results");
-		sr.sendTestNGResult();
+				"meny@skygiraffe.com", "TestNG results", "Test Results");
+		// sr.sendTestNGResult();
+		sr.sendRegularEmail();
 
 	}
-
 }
-
 
 

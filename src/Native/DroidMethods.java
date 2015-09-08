@@ -26,6 +26,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -65,14 +66,19 @@ public class DroidMethods {
 
 	}
 	
-	public void eyesCheckWindow(Eyes eyes, String testName){
+	
+	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEye) throws InterruptedException{
 		
+		if (useEye){
 		eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-		eyes.open(driver, "droid_SG", testName);
-		eyes.checkWindow("Initial screen");
+		eyes.open(driver, "Droid_SG", testName);
+		//eyes.setMatchTimeout(5);
+		eyes.checkWindow("Origin Screen");
 		eyes.close();
 		
-	}
+		}
+		
+}	
 
 	
 	public void killAppAndroid(AndroidDriver driver)throws InterruptedException, IOException {
@@ -1124,7 +1130,7 @@ public void setWifiOn(){
 		
 	}
 	
-	public void pressBackButton(){
+	public void backButton(){
 		int Back = AndroidKeyCode.BACK;
 		driver.sendKeyEvent(Back);
 		
@@ -1135,5 +1141,19 @@ public void setWifiOn(){
 		driver.sendKeyEvent(Enter);
 
 	}
+	
+	
+	public void setOrientationLandscape() {
+
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+
+	}
+	
+	public void setOrientationPortrait() {
+
+		driver.rotate(ScreenOrientation.PORTRAIT);
+
+	}
+	
 	
 }

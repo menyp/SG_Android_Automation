@@ -13,6 +13,10 @@
 			
 			
 			
+			
+			
+			
+			
 			<BTNdoneName>Done</BTNdoneName>
 			<BTNsettingsIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]</BTNsettingsIconXpth>
 			<BTNBackName>Back</BTNBackName>
@@ -69,6 +73,7 @@
 		<password>1234</password>
 		<InvalidRecoverEmailName>The email  is not a valid Skygiraffe user. Please try again.</InvalidRecoverEmailName>
 		<ConfCodeIncorrectName>Confirmation Code not correct</ConfCodeIncorrectName>
+		<Dashboard_Name>Dashboard</Dashboard_Name>
 		
 		
 		
@@ -85,7 +90,6 @@
 		<ConnectionALL>ALL</ConnectionALL>
 		<InvalidRecoverEmailName></InvalidRecoverEmailName>
 		<ConfCodeIncorrectName></ConfCodeIncorrectName>
-		<DashboardName>Dashboard </DashboardName>
 		<SalesName>Sales</SalesName>
 		<ReturnsName>Returns</ReturnsName>
 		<NetSalesName>Net Sales</NetSalesName>

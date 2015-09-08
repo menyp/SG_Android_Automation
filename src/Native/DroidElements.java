@@ -40,7 +40,7 @@ public class DroidElements {
 	String User;
 	String InvalidRecoverEmailName;
 	String ConfCodeIncorrectName;
-	
+	String Dashboard_Name;
 	
 	//Checkbox
 	String Checkbox_rememberme_ID;
@@ -93,8 +93,10 @@ public class DroidElements {
 		this.User = XmlHandel.readAndroidXml("User", langXml, xmlPath);
 		this.InvalidRecoverEmailName = XmlHandel.readAndroidXml("InvalidRecoverEmailName", langXml, xmlPath);
 		this.ConfCodeIncorrectName = XmlHandel.readAndroidXml("ConfCodeIncorrectName", langXml, xmlPath);
+		this.Dashboard_Name = XmlHandel.readAndroidXml("Dashboard_Name", langXml, xmlPath);
 
-
+		
+		
 		this.IconHome_ID = XmlHandel.readAndroidXml("IconHome_ID", langXml, xmlPath);
 
 		
