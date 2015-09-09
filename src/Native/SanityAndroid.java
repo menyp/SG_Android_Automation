@@ -155,40 +155,23 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Last 12 hours");
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
 		Thread.sleep(1000);
-
+		
 		// Check slicer in Sparklines
-		/*
-		genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.clickId(genMeth, iosData.DestinyUSAID);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
-		*/
-
-
-
-
+		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/action_slicer");
+		genMeth.clickName(genMeth, "Branch");
+		genMeth.clickName(genMeth, "Destiny USA");
+		genMeth.clickName(genMeth, "Slicer");
+		genMeth.clickName(genMeth, "Done");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Sales Last 12 Months - Sparklines / Destiny USA", useEye);
 		
-		
-		
+		// Check slicer in Sparklines
+		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/action_slicer");
+		genMeth.clickName(genMeth, "Clear");
+		genMeth.clickName(genMeth, "Done");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
 
 		/*
-				
-		// Check slicer in Sparklines
-				genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
-				genMeth.clickId(genMeth, iosData.BranchID);
-				genMeth.clickId(genMeth, iosData.DestinyUSAID);
-				genMeth.clickName(genMeth, iosData.BTNBackName);
-				genMeth.clickName(genMeth, iosData.BTNdoneName);
-				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
-				
-		//Clear the Slicer
-				genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
-				genMeth.clickName(genMeth, iosData.BTNClearName);
-				genMeth.clickName(genMeth, iosData.BTNdoneName);
-				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
-				genMeth.clickName(genMeth, iosData.BTNBackName);
 				
 		//Open Daily Sales from main screen
 				genMeth.clickId(genMeth, iosData.DailySalesID);
