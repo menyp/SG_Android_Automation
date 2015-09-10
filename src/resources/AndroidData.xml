@@ -35,7 +35,8 @@
 			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			<BTNdelete_Name>Delete</BTNdelete_Name>
 			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
-		
+			<BTNlogout_Name>Logout</BTNlogout_Name>
+			<BTNclear_Name>Clear</BTNclear_Name>
 		</Buttons>
 		
 		<TextFields>
@@ -116,6 +117,7 @@
 	  	<IconBackToApplicationList_xpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]</IconBackToApplicationList_xpth>
 		<Iconaction_icon_green_Name>action_icon_green</Iconaction_icon_green_Name>
 		<IconHome_ID>android:id/home</IconHome_ID>
+		<IconSlicer_ID>com.skygiraffe.operationaldata:id/action_slicer</IconSlicer_ID>
 	</Icon>
 	
 	

@@ -104,10 +104,9 @@ import com.applitools.eyes.Eyes;
 	public void loginSample() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
-		driver.scrollToExact("Logout");
-		genMeth.clickName(genMeth, "Logout");
+		driver.scrollToExact(droidData.BTNlogout_Name);
+		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
-		// Verify that the sample login success
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
 		// Login to sample app & open Dashboard report
@@ -157,7 +156,7 @@ import com.applitools.eyes.Eyes;
 		Thread.sleep(1000);
 		
 		// Check slicer in Sparklines
-		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/action_slicer");
+		genMeth.clickId(genMeth, droidData.IconSlicer_ID);
 		genMeth.clickName(genMeth, "Branch");
 		genMeth.clickName(genMeth, "Destiny USA");
 		genMeth.clickName(genMeth, "Slicer");
@@ -165,9 +164,9 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Sales Last 12 Months - Sparklines / Destiny USA", useEye);
 		
 		// Check slicer in Sparklines
-		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/action_slicer");
-		genMeth.clickName(genMeth, "Clear");
-		genMeth.clickName(genMeth, "Done");
+		genMeth.clickId(genMeth, droidData.IconSlicer_ID);
+		genMeth.clickName(genMeth, droidData.BTNclear_Name);
+		genMeth.clickName(genMeth, droidData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
 

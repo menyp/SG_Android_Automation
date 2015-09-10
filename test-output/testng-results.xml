@@ -2,34 +2,34 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="179011" started-at="2015-09-09T18:49:32Z" finished-at="2015-09-09T18:52:31Z">
+  <suite name="Suite" duration-ms="135247" started-at="2015-09-10T12:35:30Z" finished-at="2015-09-10T12:37:45Z">
     <groups>
       <group name="Sanity Android">
         <method signature="SanityAndroid.loginSample()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="loginSample" class="Native.SanityAndroid"/>
       </group> <!-- Sanity Android -->
     </groups>
-    <test name="Sanity Tests" duration-ms="179011" started-at="2015-09-09T18:49:32Z" finished-at="2015-09-09T18:52:31Z">
+    <test name="Sanity Tests" duration-ms="135247" started-at="2015-09-10T12:35:30Z" finished-at="2015-09-10T12:37:45Z">
       <class name="Native.SanityAndroid">
-        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="setupBeforeSuite" is-config="true" duration-ms="44058" started-at="2015-09-09T21:48:48Z" finished-at="2015-09-09T21:49:32Z">
+        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="setupBeforeSuite" is-config="true" duration-ms="54191" started-at="2015-09-10T15:34:36Z" finished-at="2015-09-10T15:35:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7102ac3e]]>
+                <![CDATA[org.testng.TestRunner@772caabe]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBeforeSuite -->
-        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="checkHomeScreen" is-config="true" duration-ms="1051" started-at="2015-09-09T21:49:32Z" finished-at="2015-09-09T21:49:33Z">
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="checkHomeScreen" is-config="true" duration-ms="1005" started-at="2015-09-10T15:35:30Z" finished-at="2015-09-10T15:35:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHomeScreen -->
-        <test-method status="PASS" signature="loginSample()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="loginSample" duration-ms="177926" started-at="2015-09-09T21:49:33Z" description="Test the login via the sample button" finished-at="2015-09-09T21:52:31Z">
+        <test-method status="PASS" signature="loginSample()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="loginSample" duration-ms="134220" started-at="2015-09-10T15:35:31Z" description="Test the login via the sample button" finished-at="2015-09-10T15:37:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginSample -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="tearDown" is-config="true" duration-ms="3642" started-at="2015-09-09T21:52:31Z" finished-at="2015-09-09T21:52:35Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityAndroid@60b4beb4]" name="tearDown" is-config="true" duration-ms="2908" started-at="2015-09-10T15:37:45Z" finished-at="2015-09-10T15:37:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

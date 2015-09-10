@@ -23,6 +23,10 @@ public class DroidElements {
 	String BTNcancelForgotPasswordID;
 	String BTNrecoverPasswordID;
 	String BTNresetPasswordID;
+	String BTNlogout_Name;
+	String BTNclear_Name;
+	String BTNdoneName;
+	
 	
 	//TextFields	
 	String TEXTFIELDemailID;
@@ -48,6 +52,7 @@ public class DroidElements {
 	
 	//Icons
 	String IconHome_ID;
+	String IconSlicer_ID;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -69,9 +74,12 @@ public class DroidElements {
 		this.BTNcancelForgotPasswordID = XmlHandel.readAndroidXml("BTNcancelForgotPasswordID", langXml, xmlPath);
 		this.BTNrecoverPasswordID = XmlHandel.readAndroidXml("BTNrecoverPasswordID", langXml, xmlPath);
 		this.BTNresetPasswordID = XmlHandel.readAndroidXml("BTNresetPasswordID", langXml, xmlPath);
+		this.BTNlogout_Name = XmlHandel.readAndroidXml("BTNlogout_Name", langXml, xmlPath);
+		this.BTNclear_Name = XmlHandel.readAndroidXml("BTNclear_Name", langXml, xmlPath);
+		this.BTNdoneName = XmlHandel.readAndroidXml("BTNdoneName", langXml, xmlPath);
 
 
-
+		
 		
 
 		this.TEXTFIELDemailID = XmlHandel.readAndroidXml("TEXTFIELDemailID", langXml, xmlPath);
@@ -98,6 +106,7 @@ public class DroidElements {
 		
 		
 		this.IconHome_ID = XmlHandel.readAndroidXml("IconHome_ID", langXml, xmlPath);
+		this.IconSlicer_ID = XmlHandel.readAndroidXml("IconSlicer_ID", langXml, xmlPath);
 
 		
 
