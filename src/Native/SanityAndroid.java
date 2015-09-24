@@ -109,6 +109,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
+		/*
 		// Login to sample app & open Dashboard report
 		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/main_report_list_item_icon_tv");
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Dashboard Tab", useEye);
@@ -169,17 +170,59 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, droidData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
-
-		/*
-				
-		//Open Daily Sales from main screen
-				genMeth.clickId(genMeth, iosData.DailySalesID);
-				genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
-				genMeth.clickName(genMeth, iosData.BTNBackName);
-						
+		
 		//OPEN SERVICE CALLS
-				genMeth.clickId(genMeth, iosData.ServiceCallsID);
-				genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls", useEye);
+		genMeth.clickName(genMeth, "Service Calls");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls", useEye);
+		// InGrid Action- First layer
+		genMeth.clickName(genMeth, droidData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, droidData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "3");
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls- priority = 3, success", useEye);	
+		
+		//Set the Slicer to Mall of America
+		genMeth.clickId(genMeth, droidData.IconSlicer_ID);
+		genMeth.clickName(genMeth, "Branch");
+		genMeth.clickName(genMeth, "Mall of America");
+		genMeth.clickName(genMeth, "Slicer");
+		genMeth.clickName(genMeth, droidData.BTNdoneName);
+		//Open the See All
+		genMeth.clickId(genMeth, droidData.BTNseeAll_ID);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls- priority = 4", useEye);
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
+//		genMeth.clickId(genMeth, droidData.IconHome_ID);
+		genMeth.backButton();
+		
+		//Open service calls map (Maps are not supported for debugg apk)
+		//genMeth.clickName(genMeth, "Service Calls Map");
+		
+		*/
+		
+		//Open service calls map
+		Thread.sleep(1000);
+		//genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
+		//genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
+		
+		
+		/*
+//Check is Location popup is displayed
+		genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		
+		genMeth.clickName(genMeth, iosData.BTNMapCarIconName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Car Icon Option", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		//go back to the map tab via the back navigation icon
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[5]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
+		genMeth.clickName(genMeth, iosData.BTNBackName);	
+		
+
 				*/
 		
 		

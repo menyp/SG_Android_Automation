@@ -26,6 +26,9 @@ public class DroidElements {
 	String BTNlogout_Name;
 	String BTNclear_Name;
 	String BTNdoneName;
+	String BTNpriority_Name;
+	String BTNseeAll_ID;
+	
 	
 	
 	//TextFields	
@@ -77,8 +80,10 @@ public class DroidElements {
 		this.BTNlogout_Name = XmlHandel.readAndroidXml("BTNlogout_Name", langXml, xmlPath);
 		this.BTNclear_Name = XmlHandel.readAndroidXml("BTNclear_Name", langXml, xmlPath);
 		this.BTNdoneName = XmlHandel.readAndroidXml("BTNdoneName", langXml, xmlPath);
+		this.BTNpriority_Name = XmlHandel.readAndroidXml("BTNpriority_Name", langXml, xmlPath);
+		this.BTNseeAll_ID = XmlHandel.readAndroidXml("BTNseeAll_ID", langXml, xmlPath);
 
-
+		
 		
 		
 

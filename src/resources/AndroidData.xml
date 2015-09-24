@@ -10,7 +10,7 @@
 			<BTNcancelForgotPasswordID>com.skygiraffe.operationaldata:id/recovery_password_fragment_cancel_btn</BTNcancelForgotPasswordID>	
 			<BTNrecoverPasswordID>com.skygiraffe.operationaldata:id/recovery_pass_step_one_submit_btn</BTNrecoverPasswordID>	
 			<BTNresetPasswordID>com.skygiraffe.operationaldata:id/recovery_pass_reset_password_btn</BTNresetPasswordID>	
-			
+			<BTNseeAll_ID>com.skygiraffe.operationaldata:id/one_lvls_item_seemore_btn</BTNseeAll_ID>
 			
 			
 			
