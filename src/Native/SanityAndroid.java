@@ -195,33 +195,136 @@ import com.applitools.eyes.Eyes;
 //		genMeth.clickId(genMeth, droidData.IconHome_ID);
 		genMeth.backButton();
 		
+		
 		//Open service calls map (Maps are not supported for debugg apk)
 		//genMeth.clickName(genMeth, "Service Calls Map");
 		
 		*/
 		
-		//Open service calls map
+		//Create new service call
+		genMeth.clickName(genMeth, "New Service Call");
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New Service Call", useEye);
+		genMeth.clickName(genMeth, "Branch");
+		genMeth.clickName(genMeth, "Mall of America");
+		genMeth.clickName(genMeth, "Assigned To");
+		genMeth.clickName(genMeth, "Jessica Blue");
+		genMeth.clickName(genMeth, "Category");
+		genMeth.clickName(genMeth, "Computer");
+		genMeth.clickName(genMeth, "Item");
+		genMeth.clickName(genMeth, "Memory card");
+		genMeth.clickName(genMeth, "Description");
+		genMeth.sendId(genMeth, "com.skygiraffe.operationaldata:id/action_free_text_ed", "Meny The Best");
+		genMeth.clickName(genMeth, "OK");
+		genMeth.clickName(genMeth, "Priority");
+		genMeth.clickName(genMeth, "1");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call with parameters", useEye);
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "Submit");
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call Actions collections +", useEye);
+		//Back to home
+		genMeth.backButton();
 		Thread.sleep(1000);
-		//genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
-		//genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
 		
+		// Order lookup
+		genMeth.clickName(genMeth, "Order Lookup");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Order Lookup parameters", useEye);
+		
+		
+		genMeth.clickName(genMeth, "Start Date");
+		Thread.sleep(1000);
+
 		
 		/*
-//Check is Location popup is displayed
-		genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
+		MobileElement UIAPickerWheel = driver
+				.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAPicker[1]/UIAPickerWheel[1]");
+		UIAPickerWheel.sendKeys("July");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		/*
+
+
+
+		
+		//Operations
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]/UIAStaticText[2]");
+		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
+		//Open grid second layer
+		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
+		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone6Plus(1000);
+		
+		genMeth.eyesCheckWindow(eyes, "Orders", useEye);
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
+
+		//Open the place new order
+		MobileElement El = driver.findElementByXPath(iosData.BTNplaceNewOrder_Xpth);
+		El.click();
+		
+		genMeth.eyesCheckWindow(eyes, "Place new order parameters", useEye);
+		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "Place new order parameters missing", useEye);
+		genMeth.clickName(genMeth, iosData.BTNokName);
+		
+//Fill the parameters
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
+		genMeth.clickName(genMeth, "ProductID");
+		genMeth.accessToCameraHandle(genMeth);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "Quantity");
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Place new order All parameters", useEye);
+		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+// Technicians
+		genMeth.clickName(genMeth, "Technicians");
+		genMeth.eyesCheckWindow(eyes, "Technicians", useEye);
+		
+// 	Phone Icon
+		genMeth.clickName(genMeth, "Phone");
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- Phone", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, "Phone");
+// Add to contacts
+		genMeth.clickName(genMeth, iosData.BTNaddContact_Name);
+		genMeth.accessToContactsHandle(genMeth);
+		genMeth.eyesCheckWindow(eyes, "Technicians- Added by SkyGiraffe screen", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+// Mail Icon
+		genMeth.clickName(genMeth, "Email");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- New Message screen", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+
+// Map Icon
+		genMeth.clickName(genMeth, "Address");
+		genMeth.eyesCheckWindow(eyes, "Technicians- Address screen", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
-		genMeth.clickName(genMeth, iosData.BTNMapCarIconName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Car Icon Option", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		//go back to the map tab via the back navigation icon
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[5]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
-		genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
-		genMeth.clickName(genMeth, iosData.BTNBackName);	
-		
+// Swipe along the technicians Cover Flow
+
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
+				
 
 				*/
 		
