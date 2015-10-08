@@ -41,7 +41,8 @@ import com.google.common.base.Function;
 
 public class DroidMethods {
 	
-	AndroidDriver driver;
+	AndroidDriver<MobileElement> driver;
+	
 	DroidElements droidData;
 	
 	DroidMethods genMeth;
@@ -81,7 +82,7 @@ public class DroidMethods {
 }	
 
 	
-	public void killAppAndroid(AndroidDriver driver)throws InterruptedException, IOException {
+	public void killAppAndroid(AndroidDriver<MobileElement> driver)throws InterruptedException, IOException {
 
 	//	driver.removeApp("com.pogoplug.android");
 		driver.resetApp();
@@ -102,28 +103,28 @@ public class DroidMethods {
 		
 	}
 	
-	public void scroll(AndroidDriver driver, String direction) {
+	public void scroll(AndroidDriver<?> driver, String direction) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", direction);
 		js.executeScript("mobile: scroll", scrollMap);
 	}
  
-	public void scrollUp(AndroidDriver driver) {
+	public void scrollUp(AndroidDriver<?> driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", "up");
 		js.executeScript("mobile: scroll", scrollMap);
 	}
     
-	public void scrollDown(AndroidDriver driver) {
+	public void scrollDown(AndroidDriver<?> driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", "down");
 		js.executeScript("mobile: scroll", scrollMap);
 	}
  
-	public AndroidDriver setCapabilitiesAndroid(DroidMethods genMeth)
+	public AndroidDriver<MobileElement> setCapabilitiesAndroid(DroidMethods genMeth)
 			throws IOException {
 		
 		// Login with an existing account
@@ -152,7 +153,7 @@ public class DroidMethods {
 //		caps.setCapability("platformName","Android");
 		try {
 
-			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		}
 
 		catch (MalformedURLException e) {
@@ -182,7 +183,7 @@ public class DroidMethods {
 		return value;
 	}
 
-	public void takeScreenShot(AndroidDriver driver,
+	public void takeScreenShot(AndroidDriver<MobileElement> driver,
 			DroidMethods genMeth, String imageName) throws IOException {
 
 		File scrFile = (driver.getScreenshotAs(OutputType.FILE));
@@ -217,7 +218,7 @@ public class DroidMethods {
 
 	// ==================== RETURN ELEMENT
 
-		public WebElement returnCss(AndroidDriver driver, String cssSelector)
+		public WebElement returnCss(AndroidDriver<MobileElement> driver, String cssSelector)
 			throws InterruptedException {
 
 		DroidMethods genMeth = new DroidMethods();
@@ -238,7 +239,7 @@ public class DroidMethods {
 		return myElement;
 	}
 
-	public WebElement returnId(AndroidDriver driver,DroidMethods genMeth, String id)
+	public WebElement returnId(AndroidDriver<MobileElement> driver,DroidMethods genMeth, String id)
 			throws InterruptedException {
 
 
@@ -259,7 +260,7 @@ public class DroidMethods {
 
 	}
 
-	public WebElement returnClassName(AndroidDriver driver, DroidMethods genMeth,  String className)
+	public WebElement returnClassName(AndroidDriver<MobileElement> driver, DroidMethods genMeth,  String className)
 			throws InterruptedException {
 
 
@@ -279,7 +280,7 @@ public class DroidMethods {
 		return myElement;
 	}
 
-	public WebElement returnXpth(AndroidDriver driver, DroidMethods genMeth, String xpth)
+	public WebElement returnXpth(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String xpth)
 			throws InterruptedException {
 
 		try {
@@ -298,7 +299,7 @@ public class DroidMethods {
 
 	}
 
-	public WebElement returnName(AndroidDriver driver, DroidMethods genMeth, String name)
+	public WebElement returnName(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String name)
 			throws InterruptedException {
 
 		try {
@@ -318,7 +319,7 @@ public class DroidMethods {
 
 	}
 	
-	public WebElement returnBy(AndroidDriver driver, DroidMethods genMeth, By by)
+	public WebElement returnBy(AndroidDriver<MobileElement> driver, DroidMethods genMeth, By by)
 			throws InterruptedException {
 
 		try {
@@ -340,7 +341,7 @@ public class DroidMethods {
 
 	// ========= CLICK an ELEMENT =========================================================================
 
-	public void clickBy(AndroidDriver driver, DroidMethods genMeth, By by) throws InterruptedException {
+	public void clickBy(AndroidDriver<MobileElement> driver, DroidMethods genMeth, By by) throws InterruptedException {
 
 
 		try {
@@ -358,7 +359,7 @@ public class DroidMethods {
 	}
 	
 	
-	public void tapBy(AndroidDriver driver, DroidMethods genMeth, By by) throws InterruptedException {
+	public void tapBy(AndroidDriver<MobileElement> driver, DroidMethods genMeth, By by) throws InterruptedException {
 
 
 		try {
@@ -375,7 +376,7 @@ public class DroidMethods {
 
 	}
 
-	public void clickCss(AndroidDriver driver, DroidMethods genMeth, String cssSelector)
+	public void clickCss(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String cssSelector)
 			throws InterruptedException {
 
 		try {
@@ -427,7 +428,7 @@ public class DroidMethods {
 		}
 	}
 
-	public void clickClassName(AndroidDriver driver, DroidMethods genMeth, String className)
+	public void clickClassName(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String className)
 			throws InterruptedException {
 
 		try {
@@ -445,7 +446,7 @@ public class DroidMethods {
 	}
 	
 
-	public void clickXpth(AndroidDriver driver, DroidMethods genMeth, String xpth)
+	public void clickXpth(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String xpth)
 			throws InterruptedException, IOException {
 
 		By by = By.xpath(xpth);
@@ -526,7 +527,7 @@ public class DroidMethods {
 
 // ======================== SEND ELEMENT =========================================
 
-	public void sendBy(AndroidDriver driver, DroidMethods genMeth, By by, String send)
+	public void sendBy(AndroidDriver<MobileElement> driver, DroidMethods genMeth, By by, String send)
 			throws InterruptedException, IOException {
 
 		try {
@@ -545,7 +546,7 @@ public class DroidMethods {
 
 	}
 
-	public void sendCss(AndroidDriver driver, DroidMethods genMeth,
+	public void sendCss(AndroidDriver<MobileElement> driver, DroidMethods genMeth,
 			String cssSelector, String send) throws InterruptedException {
 
 		try {
@@ -583,7 +584,7 @@ public class DroidMethods {
 
 	}
 
-	public void sendClassName(AndroidDriver driver, DroidMethods genMeth, String className, String send)
+	public void sendClassName(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String className, String send)
 			throws InterruptedException {
 
 		try {
@@ -600,7 +601,7 @@ public class DroidMethods {
 
 	}
 
-	public void sendXpth(AndroidDriver driver, DroidMethods genMeth, String xpth, String send)
+	public void sendXpth(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String xpth, String send)
 			throws IOException {
 
 		try {
@@ -640,7 +641,7 @@ public class DroidMethods {
 
 	// =========================Clear WebElements=====================================================================
 
-	public void clearXpth(AndroidDriver driver, DroidMethods genMeth, String xpath)
+	public void clearXpth(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String xpath)
 			throws InterruptedException {
 
 		try {
@@ -658,7 +659,7 @@ public class DroidMethods {
 
 	}
 
-	public void clearClassName(AndroidDriver driver, DroidMethods genMeth, String className)
+	public void clearClassName(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String className)
 			throws InterruptedException {
 
 		try {
@@ -695,7 +696,7 @@ public class DroidMethods {
 
 	}
 
-	public void clearCss(AndroidDriver driver, DroidMethods genMeth, String cssSelector)
+	public void clearCss(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String cssSelector)
 			throws InterruptedException {
 
 		try {
@@ -721,7 +722,7 @@ public class DroidMethods {
 	 */
 
 	// Look for an element in a few tries (with counter)
-	public void waitForElementToBeInvisible(AndroidDriver driver, By byType,
+	public void waitForElementToBeInvisible(AndroidDriver<MobileElement> driver, By byType,
 			int numAttempts) throws IOException, ParserConfigurationException,SAXException {
 
 		int count = 0;
@@ -729,7 +730,7 @@ public class DroidMethods {
 		while (count < numAttempts) {
 
 			try {
-				isInvisible = new FluentWait<AndroidDriver>(driver)
+				isInvisible = new FluentWait<AndroidDriver<MobileElement>>(driver)
 						.withTimeout(60, TimeUnit.SECONDS)
 						.pollingEvery(5, TimeUnit.SECONDS)
 						.ignoring(NoSuchElementException.class)
@@ -761,7 +762,7 @@ public class DroidMethods {
 
 	}
 
-	public void waitForElementToBeVisible(AndroidDriver driver, By By,int numAttempts) 
+	public void waitForElementToBeVisible(AndroidDriver<MobileElement> driver, By By,int numAttempts) 
 			throws IOException, ParserConfigurationException,SAXException {
 		
 		DroidMethods genMeth = new DroidMethods();
@@ -769,7 +770,7 @@ public class DroidMethods {
 		WebElement elementToBeVisible = null;
 		while (count < numAttempts) {
 			try {
-				elementToBeVisible = new FluentWait<AndroidDriver>(driver)
+				elementToBeVisible = new FluentWait<AndroidDriver<MobileElement>>(driver)
 						.withTimeout(60, TimeUnit.SECONDS)
 						.pollingEvery(5, TimeUnit.SECONDS)
 						.ignoring(NoSuchElementException.class)
@@ -797,16 +798,17 @@ public class DroidMethods {
 		}
 
 	}
-
-	public WebElement fluentwait(AndroidDriver driver, final By byType) {
+	
+	@SuppressWarnings("rawtypes")
+	public MobileElement fluentwait(AndroidDriver driver, final By byType) {
 		Wait<AndroidDriver> wait = new FluentWait<AndroidDriver>(driver)
 				.withTimeout(45, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 
-		WebElement foo = wait.until(new Function<AndroidDriver, WebElement>() {
-			public WebElement apply(AndroidDriver driver) {
-				return driver.findElement(byType);
+		MobileElement foo = (MobileElement) wait.until(new Function<AndroidDriver, WebElement>() {
+			public MobileElement apply(AndroidDriver driver) {
+				return (MobileElement) driver.findElement(byType);
 			}
 		});
 
@@ -815,14 +817,14 @@ public class DroidMethods {
 		return foo;
 	}
 
-	public void isTextPresentAndroid(AndroidDriver driver, By By, String text)
+	public void isTextPresentAndroid(AndroidDriver<MobileElement> driver, By By, String text)
 			throws IOException, ParserConfigurationException, SAXException,
 			InterruptedException {
 
 		// boolean isStartUpPageOpenIOS = false;
 
 		try {
-			new FluentWait<AndroidDriver>(driver)
+			new FluentWait<AndroidDriver<MobileElement>>(driver)
 					.withTimeout(45, TimeUnit.SECONDS)
 					.pollingEvery(5, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -843,13 +845,13 @@ public class DroidMethods {
 
 	}
 
-	public boolean checkIsTextPresentNative(AndroidDriver driver, String text,
+	public boolean checkIsTextPresentNative(AndroidDriver<MobileElement> driver, String text,
 			By by) throws IOException, ParserConfigurationException,SAXException, InterruptedException {
 
 		boolean isTextPresent = false;
 
 		try {
-			isTextPresent = new FluentWait<AndroidDriver>(driver)
+			isTextPresent = new FluentWait<AndroidDriver<MobileElement>>(driver)
 					.withTimeout(5, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -895,7 +897,7 @@ public class DroidMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			new FluentWait<AndroidDriver>(driver)
+			new FluentWait<AndroidDriver<MobileElement>>(driver)
 					.withTimeout(30, TimeUnit.SECONDS)
 					.pollingEvery(5, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -922,7 +924,7 @@ public class DroidMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			element = new FluentWait<AndroidDriver>(driver)
+			element = new FluentWait<AndroidDriver<MobileElement>>(driver)
 					.withTimeout(45, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -962,7 +964,7 @@ public class DroidMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			element = new FluentWait<AndroidDriver>(driver)
+			element = new FluentWait<AndroidDriver<MobileElement>>(driver)
 					.withTimeout(5, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -1047,7 +1049,7 @@ public class DroidMethods {
 	}
 
 
-	public void backgroundToForeground(AndroidDriver driver, int numOfTimes) {
+	public void backgroundToForeground(AndroidDriver<?> driver, int numOfTimes) {
 
 		for (int count = 0; count < numOfTimes; count++) {
 
@@ -1057,7 +1059,7 @@ public class DroidMethods {
 
 	}
 
-	public void lockUnlock(AndroidDriver driver, int numOfTimes) {
+	public void lockUnlock(AndroidDriver<?> driver, int numOfTimes) {
 
 		for (int count = 0; count < numOfTimes; count++) {
 
@@ -1067,7 +1069,7 @@ public class DroidMethods {
 
 	}
 	
-	public void longPressElement(AndroidDriver driver, DroidMethods genMeth, By By){
+	public void longPressElement(AndroidDriver<MobileElement> driver, DroidMethods genMeth, By By){
 				TouchAction action;
 				WebElement el;
 				try {
@@ -1126,19 +1128,22 @@ public void setWifiOn(){
 
 	public void pressHomeButton(){
 		int Home = AndroidKeyCode.HOME;
-		driver.sendKeyEvent(Home);
+		//driver.sendKeyEvent(Home);
+		driver.pressKeyCode(Home);
+		
 		
 	}
 	
 	public void backButton(){
 		int Back = AndroidKeyCode.BACK;
-		driver.sendKeyEvent(Back);
+		//driver.sendKeyEvent(Back);
+		driver.pressKeyCode(Back);
 		
 	}
 	
 	public void pressEnter(){
 		int Enter = AndroidKeyCode.ENTER;
-		driver.sendKeyEvent(Enter);
+		driver.pressKeyCode(Enter);
 
 	}
 	
