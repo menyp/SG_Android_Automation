@@ -128,8 +128,6 @@ public class DroidMethods {
 			throws IOException {
 		
 		// Login with an existing account
-//		final String valueAppName = System.getenv("PE_CONF_PWD");
-//		String AppPath = genMeth.getValueFromPropFile("pogoplugPath") + valueAppName;
  
 		DesiredCapabilities capabilities =  DesiredCapabilities.android();
 		capabilities.setCapability("appium-version", genMeth.getValueFromPropFile("appiumVersion"));
@@ -140,17 +138,8 @@ public class DroidMethods {
 //		capabilities.setCapability("app",AppPath);
 
 		capabilities.setCapability("appPackage", genMeth.getValueFromPropFile("appPackage"));
-		//capabilities.setCapability("appWaitActivity", genMeth.getValueFromPropFile("appWaitActivity"));
 		capabilities.setCapability("appActivity", genMeth.getValueFromPropFile("appLauncherActivity"));
 
-//		DesiredCapabilities caps = DesiredCapabilities.android();
-//		caps.setCapability("app",genMeth.getValueFromPropFile("app"));
-//		caps.setCapability("appiumVersion", "1.3.3");
-//		caps.setCapability("deviceName","Android Emulator");
-//		caps.setCapability("device-orientation", "portrait");
-//		caps.setCapability("browserName", "");
-//		caps.setCapability("platformVersion","5.0");
-//		caps.setCapability("platformName","Android");
 		try {
 
 			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);

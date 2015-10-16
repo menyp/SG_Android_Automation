@@ -137,13 +137,13 @@
                   <a name="loginSample">
                   </a> <!-- loginSample -->
                   <span class="method-name">loginSample</span>
-                  <div class="stack-trace">com.applitools.eyes.TestFailedException: &apos;Droid_SampleApp- Order Lookup parameters&apos; of &apos;Droid_SG&apos;. See details at https://eyes.applitools.com/app/sessions/251958009224252
-	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
-	at com.applitools.eyes.Eyes.close(Eyes.java:22)
-	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
-	at com.applitools.eyes.Eyes.close(Eyes.java:22)
-	at Native.DroidMethods.eyesCheckWindow(DroidMethods.java:77)
-	at Native.SanityAndroid.loginSample(SanityAndroid.java:232)
+                  <div class="stack-trace">java.lang.NullPointerException: null value in entry: bundleId=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:33)
+	at com.google.common.collect.SingletonImmutableBiMap.&lt;init&gt;(SingletonImmutableBiMap.java:39)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:57)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:80)
+	at io.appium.java_client.AppiumDriver.isAppInstalled(AppiumDriver.java:211)
+	at Native.SanityAndroid.loginSample(SanityAndroid.java:108)
 ... Removed 24 stack frames
 </div> <!-- stack-trace -->
                   <em>
@@ -155,23 +155,14 @@
                   <a name="loginSample">
                   </a> <!-- loginSample -->
                   <span class="method-name">loginSample</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 48.02 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf323ce037c5f92db6c1bba601c2ac43ad8&apos;, time: &apos;2014-10-23 13:11:40&apos;
-System info: host: &apos;SGMacBookPROs-MacBook-Pro.local&apos;, ip: &apos;10.0.0.92&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.5&apos;, java.version: &apos;1.8.0_40&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities [{app=/Users/sgmacbookpro/Appium/Android/SkyGiraffe.apk, appPackage=com.skygiraffe.operationaldata, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, version=, deviceName=04d736ab90c692e9, platform=ANDROID, appActivity=com.skygiraffe.operationaldata.LoginScreenActivity, desired={app=/Users/sgmacbookpro/Appium/Android/SkyGiraffe.apk, appPackage=com.skygiraffe.operationaldata, appActivity=com.skygiraffe.operationaldata.LoginScreenActivity, appium-version=1.3.7, platformVersion=5.1, browserName=android, platformName=Android, version=, deviceName=Nexus 4, platform=ANDROID}, appium-version=1.3.7, platformVersion=5.1.1, webStorageEnabled=false, locationContextEnabled=false, browserName=android, takesScreenshot=true, javascriptEnabled=true, platformName=Android}]
-Session ID: de8a6743-c8f0-4f0f-9a0d-8f2d86e37785
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:180)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
-	at io.appium.java_client.android.AndroidDriver.findElementByAndroidUIAutomator(AndroidDriver.java:244)
-	at io.appium.java_client.android.AndroidDriver.scrollToExact(AndroidDriver.java:65)
-	at Native.SanityAndroid.loginSample(SanityAndroid.java:107)
-... Removed 28 stack frames
+                  <div class="stack-trace">java.lang.NullPointerException: null value in entry: bundleId=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:33)
+	at com.google.common.collect.SingletonImmutableBiMap.&lt;init&gt;(SingletonImmutableBiMap.java:39)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:57)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:80)
+	at io.appium.java_client.AppiumDriver.isAppInstalled(AppiumDriver.java:211)
+	at Native.SanityAndroid.loginSample(SanityAndroid.java:108)
+... Removed 24 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Test the login via the sample button)                  </em>
@@ -182,23 +173,14 @@ Session ID: de8a6743-c8f0-4f0f-9a0d-8f2d86e37785
                   <a name="loginSample">
                   </a> <!-- loginSample -->
                   <span class="method-name">loginSample</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 48.95 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;2.44.0&apos;, revision: &apos;76d78cf323ce037c5f92db6c1bba601c2ac43ad8&apos;, time: &apos;2014-10-23 13:11:40&apos;
-System info: host: &apos;SGMacBookPROs-MacBook-Pro.local&apos;, ip: &apos;10.0.0.92&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.5&apos;, java.version: &apos;1.8.0_40&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities [{app=/Users/sgmacbookpro/Appium/Android/SkyGiraffe.apk, appPackage=com.skygiraffe.operationaldata, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, version=, deviceName=04d736ab90c692e9, platform=ANDROID, appActivity=com.skygiraffe.operationaldata.LoginScreenActivity, desired={app=/Users/sgmacbookpro/Appium/Android/SkyGiraffe.apk, appPackage=com.skygiraffe.operationaldata, appActivity=com.skygiraffe.operationaldata.LoginScreenActivity, appium-version=1.3.7, platformVersion=5.1, browserName=android, platformName=Android, version=, deviceName=Nexus 4, platform=ANDROID}, appium-version=1.3.7, platformVersion=5.1.1, webStorageEnabled=false, locationContextEnabled=false, browserName=android, takesScreenshot=true, javascriptEnabled=true, platformName=Android}]
-Session ID: de8a6743-c8f0-4f0f-9a0d-8f2d86e37785
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:180)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
-	at io.appium.java_client.android.AndroidDriver.findElementByAndroidUIAutomator(AndroidDriver.java:244)
-	at io.appium.java_client.android.AndroidDriver.scrollToExact(AndroidDriver.java:65)
-	at Native.SanityAndroid.loginSample(SanityAndroid.java:107)
-... Removed 28 stack frames
+                  <div class="stack-trace">java.lang.NullPointerException: null value in entry: bundleId=null
+	at com.google.common.collect.CollectPreconditions.checkEntryNotNull(CollectPreconditions.java:33)
+	at com.google.common.collect.SingletonImmutableBiMap.&lt;init&gt;(SingletonImmutableBiMap.java:39)
+	at com.google.common.collect.ImmutableBiMap.of(ImmutableBiMap.java:57)
+	at com.google.common.collect.ImmutableMap.of(ImmutableMap.java:80)
+	at io.appium.java_client.AppiumDriver.isAppInstalled(AppiumDriver.java:211)
+	at Native.SanityAndroid.loginSample(SanityAndroid.java:108)
+... Removed 24 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Test the login via the sample button)                  </em>
@@ -275,20 +257,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'loginSample')
 data.setCell(0, 2, 'Native.SanityAndroid')
-data.setCell(0, 3, 83724);
+data.setCell(0, 3, 36880);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginSample')
 data.setCell(1, 2, 'Native.SanityAndroid')
-data.setCell(1, 3, 48949);
+data.setCell(1, 3, 4007);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'loginSample')
 data.setCell(2, 2, 'Native.SanityAndroid')
-data.setCell(2, 3, 48026);
+data.setCell(2, 3, 2653);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <span class="suite-total-time">Total running time: 43 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -329,42 +311,42 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Native.SanityAndroid</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@3c380bd8)</span>
+                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@221dad51)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">53946 ms</span>
+                <span class="method-start">41893 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">loginSample</span>
-                <span class="method-start">54773 ms</span>
+                <span class="method-start">42918 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">138501 ms</span>
+                <span class="method-start">79803 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">loginSample</span>
-                <span class="method-start">138727 ms</span>
+                <span class="method-start">80046 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">186756 ms</span>
+                <span class="method-start">84055 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">loginSample</span>
-                <span class="method-start">186971 ms</span>
+                <span class="method-start">84192 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">235959 ms</span>
+                <span class="method-start">86876 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

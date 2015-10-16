@@ -12,6 +12,7 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Keyboard;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeSuite;
 import org.xml.sax.SAXException;
@@ -27,7 +28,7 @@ import com.applitools.eyes.Eyes;
 	String StopServerPath;
 	DroidElements droidData;
 	String appPackage;
-	public AndroidDriver driver;
+	public AndroidDriver<MobileElement> driver;
 	DroidMethods genMeth = new DroidMethods();
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
@@ -199,7 +200,7 @@ import com.applitools.eyes.Eyes;
 		//Open service calls map (Maps are not supported for debugg apk)
 		//genMeth.clickName(genMeth, "Service Calls Map");
 		
-		*/
+		
 		
 		//Create new service call
 		genMeth.clickName(genMeth, "New Service Call");
@@ -225,72 +226,80 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call Actions collections +", useEye);
 		//Back to home
 		genMeth.backButton();
-		Thread.sleep(1000);
+		
 		
 		// Order lookup
 		genMeth.clickName(genMeth, "Order Lookup");
+		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Order Lookup parameters", useEye);
 		
 		
 		genMeth.clickName(genMeth, "Start Date");
-		Thread.sleep(1000);
-
+		MobileElement UIAPickerWheel = driver.findElementById("android:id/pickers");
+		UIAPickerWheel.sendKeys("Jan");
+		genMeth.pressEnter();	
+		genMeth.clickName(genMeth, "OK");
+		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/parameterized_fragment_submit_button");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- List of Orders", useEye);
+		genMeth.backButton();
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
 		
-		/*
-		MobileElement UIAPickerWheel = driver
-				.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAPicker[1]/UIAPickerWheel[1]");
-		UIAPickerWheel.sendKeys("July");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		/*
-
-
-
 		
 		//Operations
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]/UIAStaticText[2]");
-		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
+		driver.scrollTo("Operations");
+		genMeth.clickXpth(
+				driver,genMeth,
+				"//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.ListView[1]/android.widget.RelativeLayout[7]/android.widget.RelativeLayout[1]");
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Inventory", useEye);
+		
 		//Open grid second layer
-		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
-		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, "Mall of America");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Inventory second layer", useEye);
+		genMeth.backButton();
 		
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
+		//Open Orders tab
+		genMeth.clickId(genMeth, "android:id/action_bar_spinner");
+		genMeth.clickName(genMeth, "Orders");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Orders", useEye);
+		genMeth.clickId(genMeth, "android:id/action_bar_spinner");
+		genMeth.clickName(genMeth, "Place New Order");
 		
-		genMeth.eyesCheckWindow(eyes, "Orders", useEye);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
-
 		//Open the place new order
-		MobileElement El = driver.findElementByXPath(iosData.BTNplaceNewOrder_Xpth);
-		El.click();
+		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/action_collection_template_button");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Place new order parameters", useEye);
+		genMeth.clickName(genMeth, "Submit");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Place new order parameters missing", useEye);
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
 		
-		genMeth.eyesCheckWindow(eyes, "Place new order parameters", useEye);
-		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "Place new order parameters missing", useEye);
-		genMeth.clickName(genMeth, iosData.BTNokName);
-		
-//Fill the parameters
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
+		// Fill the parameters
+		genMeth.clickName(genMeth, "Branch");
+		genMeth.clickName(genMeth, "Mall of America");
 		genMeth.clickName(genMeth, "ProductID");
-		genMeth.accessToCameraHandle(genMeth);
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		Thread.sleep(2000);
+		genMeth.clickId(genMeth,"com.skygiraffe.operationaldata:id/qr_scan_input_edit");
+		genMeth.sendId(genMeth,"com.skygiraffe.operationaldata:id/qr_manual_input_edit_text","1");
+		driver.hideKeyboard();
+		genMeth.clickName(genMeth, "USE");
+
 		genMeth.clickName(genMeth, "Quantity");
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Place new order All parameters", useEye);
-		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.sendId(genMeth,
+				"com.skygiraffe.operationaldata:id/action_free_text_ed", "1");
+		//genMeth.pressEnter();
+		genMeth.clickName(genMeth, "OK");
+		genMeth.eyesCheckWindow(eyes,
+				"Droid_SampleApp- Place new order All parameters", useEye);
+		genMeth.clickName(genMeth, "Submit");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Place New Order",
+				useEye);
+		genMeth.backButton();
+
+*/
+		
+		driver.scrollToExact("Technicians").click();
+		Thread.sleep(1000);
+
+		/*
 		
 // Technicians
 		genMeth.clickName(genMeth, "Technicians");
