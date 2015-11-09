@@ -74,12 +74,15 @@ import com.applitools.eyes.Eyes;
 		}
 
 		else {
-			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.id(droidData.BTNweeklyOperationsID));
+			boolean StartUpScreenDisplay1 = genMeth.checkIsElementVisible( By.name("Applications"));
+			genMeth.swipedownNexus4(500);
+			genMeth.swipedownNexus4(500);
+			boolean StartUpScreenDisplay2 = genMeth.checkIsElementVisible( By.name("Settings"));
 
-			if (StartUpScreenDisplay != true) {
+			if (StartUpScreenDisplay1 != true && StartUpScreenDisplay2  != true ) {
 
 				try {
-					driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
+				//	driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
 					driver.quit();
 				} catch (Exception e) {
 					// swallow if fails
@@ -100,9 +103,10 @@ import com.applitools.eyes.Eyes;
 		genMeth.setWifiOn();
 	}
 
-	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+	
+	@Test (enabled = true ,testName = "test the sample Account - Dashboard & Daily Sales", retryAnalyzer = Retry.class, description = "test the sample Account - Dashboard & Daily Sales" ,
 			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
-	public void loginSample() throws ParserConfigurationException,
+	public void sampleAccountDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
 		driver.scrollToExact(droidData.BTNlogout_Name);
@@ -110,7 +114,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
-		/*
+		
 		// Login to sample app & open Dashboard report
 		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/main_report_list_item_icon_tv");
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Dashboard Tab", useEye);
@@ -170,7 +174,20 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, droidData.BTNclear_Name);
 		genMeth.clickName(genMeth, droidData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Daily Sales Last 12 Months - Sparklines", useEye);
+		genMeth.backButton();
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
+	}
+	
+	
+	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android1"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void sampleAccountServiceCalls() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		driver.scrollToExact(droidData.BTNlogout_Name);
+		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
+		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
 		//OPEN SERVICE CALLS
 		genMeth.clickName(genMeth, "Service Calls");
@@ -196,11 +213,8 @@ import com.applitools.eyes.Eyes;
 //		genMeth.clickId(genMeth, droidData.IconHome_ID);
 		genMeth.backButton();
 		
-		
 		//Open service calls map (Maps are not supported for debugg apk)
 		//genMeth.clickName(genMeth, "Service Calls Map");
-		
-		
 		
 		//Create new service call
 		genMeth.clickName(genMeth, "New Service Call");
@@ -226,7 +240,19 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call Actions collections +", useEye);
 		//Back to home
 		genMeth.backButton();
-		
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
+		}
+	
+	
+	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void sampleAccountOrderLookup() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		driver.scrollToExact(droidData.BTNlogout_Name);
+		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
+		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
 		// Order lookup
 		genMeth.clickName(genMeth, "Order Lookup");
@@ -245,6 +271,17 @@ import com.applitools.eyes.Eyes;
 		genMeth.backButton();
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
 		
+	}
+	
+	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void sampleAccountOperations() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		driver.scrollToExact(droidData.BTNlogout_Name);
+		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
+		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
 		//Operations
 		driver.scrollTo("Operations");
@@ -279,6 +316,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "ProductID");
 		genMeth.clickId(genMeth,"com.skygiraffe.operationaldata:id/qr_scan_input_edit");
 		genMeth.sendId(genMeth,"com.skygiraffe.operationaldata:id/qr_manual_input_edit_text","1");
+		Thread.sleep(1000);
 		driver.hideKeyboard();
 		genMeth.clickName(genMeth, "USE");
 
@@ -292,56 +330,48 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Submit");
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Place New Order",
 				useEye);
-		genMeth.backButton();
-
-*/
-		
-		driver.scrollToExact("Technicians").click();
 		Thread.sleep(1000);
+		genMeth.backButton();
+		genMeth.clickId(genMeth, droidData.IconHome_ID);
 
-		/*
-		
+	}
+	
+	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void sampleAccountTechnicians() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		driver.scrollToExact(droidData.BTNlogout_Name);
+		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
+		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
+		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
+				
 // Technicians
+		//driver.scrollToExact("Technicians");
+		genMeth.swipedownNexus4(500);
 		genMeth.clickName(genMeth, "Technicians");
-		genMeth.eyesCheckWindow(eyes, "Technicians", useEye);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp - Technicians", useEye);
 		
 // 	Phone Icon
 		genMeth.clickName(genMeth, "Phone");
 		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- Phone", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, "Phone");
-// Add to contacts
-		genMeth.clickName(genMeth, iosData.BTNaddContact_Name);
-		genMeth.accessToContactsHandle(genMeth);
-		genMeth.eyesCheckWindow(eyes, "Technicians- Added by SkyGiraffe screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp Technicians- Phone", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+
 		
 // Mail Icon
 		genMeth.clickName(genMeth, "Email");
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- New Message screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp Technicians- Email screen", useEye);
+		genMeth.clickName(genMeth, "Cancel");
 
 // Map Icon
 		genMeth.clickName(genMeth, "Address");
-		genMeth.eyesCheckWindow(eyes, "Technicians- Address screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		
-// Swipe along the technicians Cover Flow
-
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
-				
-
-				*/
-		
-		
-		
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp Technicians- Address screen", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.clickId	(genMeth, droidData.IconHome_ID);
+		genMeth.clickId	(genMeth, droidData.IconHome_ID);
 		
 	}
-
 
 	
 	@Test(enabled = false, groups = { "Sanity Android" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
@@ -467,10 +497,12 @@ import com.applitools.eyes.Eyes;
 
 		try {
 
+			/*
 			boolean isAppInstalled = driver.isAppInstalled(appPackage);
 			if (isAppInstalled) {
 				driver.removeApp(appPackage);
 			}
+			*/
 			driver.quit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

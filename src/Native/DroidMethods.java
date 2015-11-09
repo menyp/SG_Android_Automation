@@ -1149,5 +1149,11 @@ public void setWifiOn(){
 
 	}
 	
+	public void swipedownNexus4(int miliseconds) {
+
+		driver.swipe(400, 900, 400, 200, miliseconds);
+
+	}
+	
 	
 }
