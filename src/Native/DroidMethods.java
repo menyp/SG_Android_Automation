@@ -435,7 +435,7 @@ public class DroidMethods {
 	}
 	
 
-	public void clickXpth(AndroidDriver<MobileElement> driver, DroidMethods genMeth, String xpth)
+	public void clickXpth(DroidMethods genMeth, String xpth)
 			throws InterruptedException, IOException {
 
 		By by = By.xpath(xpth);
@@ -449,7 +449,7 @@ public class DroidMethods {
 
 		catch (Exception e) {
 			genMeth.takeScreenShot(driver, genMeth, xpth);
-			org.testng.Assert.fail(xpth + " didn't display");
+			org.testng.Assert.fail("xpth" + " didn't display");
 
 		}
 

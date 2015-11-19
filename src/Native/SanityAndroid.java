@@ -59,7 +59,7 @@ import com.applitools.eyes.Eyes;
 	@BeforeMethod (alwaysRun = true)
 	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
 
-//		genMeth.setWifiOn();
+		useEye = true;
 
 		// Check if the client still logged in & in StartUp screen before each test
 		if (driver == null) {
@@ -74,12 +74,15 @@ import com.applitools.eyes.Eyes;
 		}
 
 		else {
-			boolean StartUpScreenDisplay1 = genMeth.checkIsElementVisible( By.name("Applications"));
+			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.name("Applications"));
+			/*
 			genMeth.swipedownNexus4(500);
 			genMeth.swipedownNexus4(500);
 			boolean StartUpScreenDisplay2 = genMeth.checkIsElementVisible( By.name("Settings"));
-
 			if (StartUpScreenDisplay1 != true && StartUpScreenDisplay2  != true ) {
+
+*/
+			if (StartUpScreenDisplay != true ) {
 
 				try {
 				//	driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
@@ -179,11 +182,11 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	
-	@Test (enabled = true ,testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
-			groups= {"Sanity Android1"}  /*dependsOnMethods={"testLogin"}*/)	
+	@Test (enabled = true , invocationCount = 1, testName = "test the sample application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
 	public void sampleAccountServiceCalls() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
-
+		useEye = false;
 		driver.scrollToExact(droidData.BTNlogout_Name);
 		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
@@ -191,56 +194,97 @@ import com.applitools.eyes.Eyes;
 		
 		//OPEN SERVICE CALLS
 		genMeth.clickName(genMeth, "Service Calls");
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls", useEye);
-		// InGrid Action- First layer
-		genMeth.clickName(genMeth, droidData.BTNpriority_Name);
+		Thread.sleep(3000);
+//		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls", useEye);
+		Thread.sleep(10000);
+		
+		//Set Status & Priority in main Service calls screen
+		//genMeth.clickXpth(genMeth, " //android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.FrameLayout[1]/android.widget.ListView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[3]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+
+		try {
+			
+		MobileElement btnStatus = driver.findElementByXPath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.FrameLayout[1]/android.widget.ListView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[3]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]");
+			btnStatus.click();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			driver.tap(1, 230, 470, 500);
+		}
+		Thread.sleep(1000);
+		genMeth.clickName(genMeth, "In Progress");
+		Thread.sleep(3000);
+		
+		try {	
+			//genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			MobileElement btnPriority = driver.findElementByXPath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			btnPriority.click();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			driver.tap(1, 550, 450, 500);
+		}
+		Thread.sleep(1000);
+		genMeth.clickName(genMeth, "5");
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Action in first layer", useEye);
+//		genMeth.clickName(genMeth, "Status");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Action in second layer layer", useEye);
+		try {
+			//genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			MobileElement btnStatus = driver.findElementByXPath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			btnStatus.click();
+		} catch (Exception e1) {
+			
+			driver.tap(1, 230, 470, 500);
+		}
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "Open");
+		Thread.sleep(2000);
+		try {	
+			//genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			MobileElement btnPriority = driver.findElementByXPath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.TextView[2]");
+			btnPriority.click();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			driver.tap(1, 550, 450, 500);
+		}
+		Thread.sleep(2000);
 		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, droidData.BTNpriority_Name);
-		genMeth.clickName(genMeth, "3");
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "Status");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Action in second layer layer after update", useEye);
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.LinearLayout[2]/android.widget.ImageView[1]");
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Contact Phone", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[4]/android.widget.LinearLayout[2]/android.widget.ImageView[2]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Contact Address", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.swipedownNexus4(500);
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Phone in Map", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Address in Map", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[3]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls URL in Map", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Technician Phone", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		genMeth.clickXpth(genMeth, "//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[2]/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]");
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Technician Address", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+
+		genMeth.clickName(genMeth, "Close Service Call");
 		Thread.sleep(4000);
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls- priority = 3, success", useEye);	
-		
-		//Set the Slicer to Mall of America
-		genMeth.clickId(genMeth, droidData.IconSlicer_ID);
-		genMeth.clickName(genMeth, "Branch");
-		genMeth.clickName(genMeth, "Mall of America");
-		genMeth.clickName(genMeth, "Slicer");
-		genMeth.clickName(genMeth, droidData.BTNdoneName);
-		//Open the See All
-		genMeth.clickId(genMeth, droidData.BTNseeAll_ID);
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls- priority = 4", useEye);
-		genMeth.clickId(genMeth, droidData.IconHome_ID);
-//		genMeth.clickId(genMeth, droidData.IconHome_ID);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- service calls Close Service Call", useEye);
+		genMeth.clickName(genMeth, "Cancel");
+		Thread.sleep(1000);
 		genMeth.backButton();
-		
-		//Open service calls map (Maps are not supported for debugg apk)
-		//genMeth.clickName(genMeth, "Service Calls Map");
-		
-		//Create new service call
-		genMeth.clickName(genMeth, "New Service Call");
-		Thread.sleep(2000);
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New Service Call", useEye);
-		genMeth.clickName(genMeth, "Branch");
-		genMeth.clickName(genMeth, "Mall of America");
-		genMeth.clickName(genMeth, "Assigned To");
-		genMeth.clickName(genMeth, "Jessica Blue");
-		genMeth.clickName(genMeth, "Category");
-		genMeth.clickName(genMeth, "Computer");
-		genMeth.clickName(genMeth, "Item");
-		genMeth.clickName(genMeth, "Memory card");
-		genMeth.clickName(genMeth, "Description");
-		genMeth.sendId(genMeth, "com.skygiraffe.operationaldata:id/action_free_text_ed", "Meny The Best");
-		genMeth.clickName(genMeth, "OK");
-		genMeth.clickName(genMeth, "Priority");
-		genMeth.clickName(genMeth, "1");
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call with parameters", useEye);
-		Thread.sleep(2000);
-		genMeth.clickName(genMeth, "Submit");
-		Thread.sleep(2000);
-		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- New service call Actions collections +", useEye);
-		//Back to home
 		genMeth.backButton();
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
+
 		}
 	
 	
@@ -285,8 +329,7 @@ import com.applitools.eyes.Eyes;
 		
 		//Operations
 		driver.scrollTo("Operations");
-		genMeth.clickXpth(
-				driver,genMeth,
+		genMeth.clickXpth(genMeth,
 				"//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.ListView[1]/android.widget.RelativeLayout[7]/android.widget.RelativeLayout[1]");
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- Inventory", useEye);
@@ -316,7 +359,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "ProductID");
 		genMeth.clickId(genMeth,"com.skygiraffe.operationaldata:id/qr_scan_input_edit");
 		genMeth.sendId(genMeth,"com.skygiraffe.operationaldata:id/qr_manual_input_edit_text","1");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.hideKeyboard();
 		genMeth.clickName(genMeth, "USE");
 
@@ -431,7 +474,7 @@ import com.applitools.eyes.Eyes;
 	
 	}
 	
-	@Test(enabled = false, groups = { "Sanity Android1" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot" )
+	@Test(enabled = false, groups = { "Sanity Android" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot" )
 	public void forgotYourPassword() throws Exception, Throwable {
 		
 		genMeth.signOutFromStartup(genMeth, droidData);
