@@ -112,18 +112,15 @@ import com.applitools.eyes.Eyes;
 	public void sampleAccountDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
-		driver.scrollToExact(droidData.BTNlogout_Name);
 		genMeth.clickName(genMeth, droidData.BTNlogout_Name );
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Main Screen", useEye );
 		
-		
 		// Login to sample app & open Dashboard report
 		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/main_report_list_item_icon_tv");
+		Thread.sleep(1000);
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample Dashboard Tab", useEye);
-		driver.scrollToExact("SALES");
 		genMeth.clickName(genMeth,  droidData.Dashboard_Name);
-		//genMeth.clickId(genMeth, "android:id/action_bar_spinner");
 		genMeth.clickName(genMeth, "World wide orders");
 		genMeth.eyesCheckWindow(eyes, "Droid_loginSample World wide orders Tab", useEye);
 		genMeth.backButton();
@@ -310,7 +307,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.pressEnter();	
 		genMeth.clickName(genMeth, "OK");
 		genMeth.clickId(genMeth, "com.skygiraffe.operationaldata:id/parameterized_fragment_submit_button");
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp- List of Orders", useEye);
 		genMeth.backButton();
 		genMeth.clickId(genMeth, droidData.IconHome_ID);
@@ -411,8 +408,12 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Address");
 		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp Technicians- Address screen", useEye);
 		genMeth.clickName(genMeth, "Cancel");
+		genMeth.swipeRightNexus4(1000);
+		genMeth.eyesCheckWindow(eyes, "Droid_SampleApp Technicians- Swipe right", useEye);
 		genMeth.clickId	(genMeth, droidData.IconHome_ID);
 		genMeth.clickId	(genMeth, droidData.IconHome_ID);
+		
+	
 		
 	}
 

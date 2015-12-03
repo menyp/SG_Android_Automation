@@ -35,7 +35,7 @@
 			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			<BTNdelete_Name>Delete</BTNdelete_Name>
 			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
-			<BTNlogout_Name>Logout</BTNlogout_Name>
+			<BTNlogout_Name>Log Out</BTNlogout_Name>
 			<BTNclear_Name>Clear</BTNclear_Name>
 		</Buttons>
 		

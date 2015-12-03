@@ -70,14 +70,19 @@ public class DroidMethods {
 	
 	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEye) throws InterruptedException{
 		
-		if (useEye){
-		eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-		eyes.open(driver, "Droid_SG", testName);
-		//eyes.setMatchTimeout(5);
-		eyes.checkWindow("Origin Screen");
-		eyes.close();
-		
+
+		if (useEye) {
+			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
+			eyes.open(driver, "Droid_SG", testName);
+			// eyes.setMatchTimeout(5);
+
+			eyes.checkWindow("Origin Screen");
+			eyes.close();
+			// The below will allow to continue the test even if the UI testing will fail
+			//com.applitools.eyes.TestResults testResult = eyes.close(false);
+
 		}
+		
 		
 }	
 
@@ -1152,6 +1157,12 @@ public void setWifiOn(){
 	public void swipedownNexus4(int miliseconds) {
 
 		driver.swipe(400, 900, 400, 200, miliseconds);
+
+	}
+	
+	public void swipeRightNexus4(int miliseconds) {
+
+		driver.swipe(650, 600, 100, 600, miliseconds);
 
 	}
 	
